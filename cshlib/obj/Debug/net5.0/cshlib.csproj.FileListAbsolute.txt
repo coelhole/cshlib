@@ -1,0 +1,11 @@
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\bin\Debug\net5.0\cshlib.deps.json
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\bin\Debug\net5.0\cshlib.dll
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\bin\Debug\net5.0\ref\cshlib.dll
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\bin\Debug\net5.0\cshlib.pdb
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.AssemblyInfoInputs.cache
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.AssemblyInfo.cs
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.dll
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\ref\cshlib.dll
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.pdb
