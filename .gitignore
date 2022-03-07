@@ -1,0 +1,12 @@
+# arquivos
+*.exe
+*.dll
+*.pdb
+*.v2
+*.suo
+*.cache
+
+# diretórios
+.vs/
+bin/
+obj/
