@@ -84,6 +84,20 @@ namespace cshlib.Brasil
 
         public static int CheckCPF(string numero)
         {
+            if (numero.Length != 11)
+                return CPFException.ComprimentoInvalido;
+            else
+            if (!numero.All(char.IsDigit))
+                return CPFException.AlgarismoInvalido;
+            else
+            {
+                int[] digitos = new int[11];
+                for(int i = 0; i < 11; i++)
+                    digitos[i] = numero[i] - 48;
+                //
+                //
+            }
+
             return CPFException.NumeroValido;
         }
 
