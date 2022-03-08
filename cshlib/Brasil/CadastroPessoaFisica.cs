@@ -32,7 +32,6 @@ namespace cshlib.Brasil
         public string NumeroComMascara => Numero.Substring(0, 3) + "." + Numero.Substring(3, 3) + "." + Numero.Substring(6, 3) + "-" + Numero.Substring(9, 2);
         public int AreaFiscal => Numero[8] == '0' ? 10 : Numero[8] - 48;
         public string Nome { get; private set; }
-        public UnidadeFederativa Estado { get; private set; }
         public SituacaoCadastral? Situacao { get; private set; }
         public int? DigitoVerificador { get; private set; }
         public DateTime? DataDeNascimento { get; private set; }
