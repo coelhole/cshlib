@@ -9,3 +9,4 @@ C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\
 C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.dll
 C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\ref\cshlib.dll
 C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.pdb
+C:\Users\Administrador\Documents\Github\leonardohcoelho\cshlib\cshlib\obj\Debug\net5.0\cshlib.csproj.AssemblyReference.cache

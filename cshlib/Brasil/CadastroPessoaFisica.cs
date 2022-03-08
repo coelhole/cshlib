@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace cshlib.Brasil
 {
@@ -13,15 +14,54 @@ namespace cshlib.Brasil
             Nula
         }
 
-        public CadastroPessoaFisica(string numero)
+        public sealed class CPFException : Exception
         {
-            //
-            //
-            //
+            public const int NumeroValido = 1;
+            public const int ComprimentoInvalido = 3;
+            public const int AlgarismoInvalido = 5;
+            public const int PrimeiroDigitoInvalido = 7;
+            public const int SegundoDigitoInvalido = 11;
+
+            public static readonly int[] ExceptionCodes = new int[4] { ComprimentoInvalido, AlgarismoInvalido, PrimeiroDigitoInvalido, SegundoDigitoInvalido };
+
+            public int? Codigo { get; private set; }
+
+            public CPFException() : base("CPF inválido") { }
+
+            public CPFException(int codigo):base(Mensagem(codigo))
+            {
+                if (ExceptionCodes.Contains(codigo))
+                    Codigo = codigo;
+                else
+                    throw new ArgumentException("Código de exceção inválido: " + codigo);
+            }
+
+            public static string Mensagem(int codigo)
+            {
+                return codigo switch
+                {
+                    ComprimentoInvalido => "CPF inválido: comprimento diferente de 11",
+                    AlgarismoInvalido => "CPF inválido: algarismo/caractere inválido",
+                    PrimeiroDigitoInvalido => "CPF inválido: primeiro dígito verificador inválido",
+                    SegundoDigitoInvalido => "CPF inválido: segundo dígito verificador inválido",
+                    _ => "CPF inválido",
+                };
+            }
         }
 
-        public CadastroPessoaFisica(string numero, DateTime dataDeNascimento)
+        public CadastroPessoaFisica(string numero)
         {
+            int codigoValidadeNumero = CheckCPF(numero);
+
+            if (codigoValidadeNumero == CPFException.NumeroValido)
+                Numero = numero;
+            else
+                throw new CPFException(codigoValidadeNumero);
+        }
+
+        public CadastroPessoaFisica(string numero, DateTime dataDeNascimento) : this(numero)
+        {
+            DataDeNascimento = dataDeNascimento;
             //
             //
             //
@@ -39,5 +79,10 @@ namespace cshlib.Brasil
         public DateTime? HorarioConsulta { get; private set; }
         public string CodigoControle { get; private set; }
         public string QRCode /*base64*/ { get; private set; }
+
+        public static int CheckCPF(string numero)
+        {
+            return CPFException.NumeroValido;
+        }
     }
 }

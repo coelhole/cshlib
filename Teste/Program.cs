@@ -12,6 +12,11 @@ namespace Teste
                 Console.WriteLine("Fetched!");
 
 
+            CadastroPessoaFisica.CPFException exc = new CadastroPessoaFisica.CPFException(0);
+
+            Console.WriteLine(exc.Codigo);
+
+
             Console.WriteLine("It's over!");
         }
     }
