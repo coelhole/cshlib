@@ -67,10 +67,11 @@
 
         public static readonly UnidadeFederativa[] Itens;
 
-        public Regiao Regiao { get; private set; }
-        public int CodigoIBGE { get; private set; }
+        public int Id { get; private set; }
         public string Nome { get; private set; }
         public string Sigla { get; private set; }
+        public int AreaFiscal { get; private set; }
+        public Regiao Regiao { get; private set; }
 
         private UnidadeFederativa() { }
 
@@ -78,155 +79,174 @@
         {
             RO = new UnidadeFederativa
             {
-                CodigoIBGE = 11,
+                Id = 11,
                 Nome = "Rondônia",
                 Sigla = "RO",
+                AreaFiscal = 2,
                 Regiao = Regiao.N
             };
 
             AC = new UnidadeFederativa
             {
-                CodigoIBGE = 12,
+                Id = 12,
                 Nome = "Acre",
                 Sigla = "AC",
+                AreaFiscal = 2,
                 Regiao = Regiao.N
             };
 
             AM = new UnidadeFederativa
             {
-                CodigoIBGE = 13,
+                Id = 13,
                 Nome = "Amazonas",
                 Sigla = "AM",
+                AreaFiscal = 2,
                 Regiao = Regiao.N
             };
 
             RR = new UnidadeFederativa
             {
-                CodigoIBGE = 14,
+                Id = 14,
                 Nome = "Roraima",
                 Sigla = "RR",
+                AreaFiscal = 2,
                 Regiao = Regiao.N
             };
 
             PA = new UnidadeFederativa
             {
-                CodigoIBGE = 15,
+                Id = 15,
                 Nome = "Pará",
                 Sigla = "PA",
+                AreaFiscal = 2,
                 Regiao = Regiao.N
             };
 
             AP = new UnidadeFederativa
             {
-                CodigoIBGE = 16,
+                Id = 16,
                 Nome = "Amapá",
                 Sigla = "AP",
+                AreaFiscal = 2,
                 Regiao = Regiao.N
             };
 
             TO = new UnidadeFederativa
             {
-                CodigoIBGE = 17,
+                Id = 17,
                 Nome = "Tocantins",
                 Sigla = "TO",
+                AreaFiscal = 1,
                 Regiao = Regiao.N
             };
 
 
             MA = new UnidadeFederativa
             {
-                CodigoIBGE = 21,
+                Id = 21,
                 Nome = "Maranhão",
                 Sigla = "MA",
+                AreaFiscal = 3,
                 Regiao = Regiao.NE
             };
 
             PI = new UnidadeFederativa
             {
-                CodigoIBGE = 22,
+                Id = 22,
                 Nome = "Piauí",
                 Sigla = "PI",
+                AreaFiscal = 3,
                 Regiao = Regiao.NE
             };
 
             CE = new UnidadeFederativa
             {
-                CodigoIBGE = 23,
+                Id = 23,
                 Nome = "Ceará",
                 Sigla = "CE",
+                AreaFiscal = 3,
                 Regiao = Regiao.NE
             };
 
             RN = new UnidadeFederativa
             {
-                CodigoIBGE = 24,
+                Id = 24,
                 Nome = "Rio Grande do Norte",
                 Sigla = "RN",
+                AreaFiscal = 4,
                 Regiao = Regiao.NE
             };
 
             PB = new UnidadeFederativa
             {
-                CodigoIBGE = 25,
+                Id = 25,
                 Nome = "Paraíba",
                 Sigla = "PB",
+                AreaFiscal = 4,
                 Regiao = Regiao.NE
             };
 
             PE = new UnidadeFederativa
             {
-                CodigoIBGE = 26,
+                Id = 26,
                 Nome = "Pernambuco",
                 Sigla = "PE",
+                AreaFiscal = 4,
                 Regiao = Regiao.NE
             };
 
             AL = new UnidadeFederativa
             {
-                CodigoIBGE = 27,
+                Id = 27,
                 Nome = "Alagoas",
                 Sigla = "AL",
+                AreaFiscal = 4,
                 Regiao = Regiao.NE
             };
 
             SE = new UnidadeFederativa
             {
-                CodigoIBGE = 28,
+                Id = 28,
                 Nome = "Sergipe",
                 Sigla = "SE",
+                AreaFiscal = 5,
                 Regiao = Regiao.NE
             };
 
             BA = new UnidadeFederativa
             {
-                CodigoIBGE = 29,
+                Id = 29,
                 Nome = "Bahia",
                 Sigla = "BA",
+                AreaFiscal = 5,
                 Regiao = Regiao.NE
             };
 
 
             MG = new UnidadeFederativa
             {
-                CodigoIBGE = 31,
+                Id = 31,
                 Nome = "Minas Gerais",
                 Sigla = "MG",
+                AreaFiscal = 6,
                 Regiao = Regiao.SE
             };
 
             ES = new UnidadeFederativa
             {
-                CodigoIBGE = 32,
+                Id = 32,
                 Nome = "Espírito Santo",
                 Sigla = "ES",
+                AreaFiscal = 7,
                 Regiao = Regiao.SE
             };
 
             RJ = new UnidadeFederativa
             {
-                CodigoIBGE = 33,
+                Id = 33,
                 Nome = "Rio de Janeiro",
                 Sigla = "RJ",
+                AreaFiscal = 7,
                 Regiao = Regiao.SE
             };
 
@@ -236,73 +256,82 @@
                 CodigoIBGE = 34,
                 Nome = "Guanabara",
                 Sigla = "GB",
+                AreaFiscal = 7,
                 Regiao = Regiao.SE
             };
             */
 
             SP = new UnidadeFederativa
             {
-                CodigoIBGE = 35,
+                Id = 35,
                 Nome = "São Paulo",
                 Sigla = "SP",
+                AreaFiscal = 8,
                 Regiao = Regiao.SE
             };
 
 
             PR = new UnidadeFederativa
             {
-                CodigoIBGE = 41,
+                Id = 41,
                 Nome = "Paraná",
                 Sigla = "PR",
+                AreaFiscal = 9,
                 Regiao = Regiao.S
             };
 
             SC = new UnidadeFederativa
             {
-                CodigoIBGE = 42,
+                Id = 42,
                 Nome = "Santa Catarina",
                 Sigla = "SC",
+                AreaFiscal = 9,
                 Regiao = Regiao.S
             };
 
             RS = new UnidadeFederativa
             {
-                CodigoIBGE = 43,
+                Id = 43,
                 Nome = "Rio Grande do Sul",
                 Sigla = "RS",
+                AreaFiscal = 10,
                 Regiao = Regiao.S
             };
 
 
             MS = new UnidadeFederativa
             {
-                CodigoIBGE = 50,
+                Id = 50,
                 Nome = "Mato Grosso do Sul",
                 Sigla = "MS",
+                AreaFiscal = 1,
                 Regiao = Regiao.CO
             };
 
             MT = new UnidadeFederativa
             {
-                CodigoIBGE = 51,
+                Id = 51,
                 Nome = "Mato Grosso",
                 Sigla = "MT",
+                AreaFiscal = 1,
                 Regiao = Regiao.CO
             };
 
             GO = new UnidadeFederativa
             {
-                CodigoIBGE = 52,
+                Id = 52,
                 Nome = "Goiás",
                 Sigla = "GO",
+                AreaFiscal = 1,
                 Regiao = Regiao.CO
             };
 
             DF = new UnidadeFederativa
             {
-                CodigoIBGE = 53,
+                Id = 53,
                 Nome = "Distrito Federal",
                 Sigla = "DF",
+                AreaFiscal = 1,
                 Regiao = Regiao.CO
             };
 
@@ -319,28 +348,28 @@
 
         public Enum ToEnum()
         {
-            return (Enum)CodigoIBGE;
+            return (Enum)Id;
         }
 
         public static UnidadeFederativa EnumToUnidadeFederativa(Enum en)
         {
             foreach (UnidadeFederativa i in Itens)
-                if (i.CodigoIBGE == (int)en)
+                if (i.Id == (int)en)
                     return i;
             return null;
         }
 
-        public static bool Existe(int cod)
+        public static bool Existe(int id)
         {
             foreach (UnidadeFederativa i in Itens)
-                if (i.CodigoIBGE == cod)
+                if (i.Id == id)
                     return true;
             return false;
         }
 
         public override string ToString()
         {
-            return "{\"codigo_ibge\":" + CodigoIBGE + ",\"nome\":\"" + Nome + "\",\"sigla\":\"" + Sigla + "\",\"regiao\":" + Regiao + "}";
+            return "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"sigla\":\"" + Sigla + "\",\"area_fiscal\":" + AreaFiscal + ",\"regiao\":" + Regiao + "}";
         }
     }
 }
