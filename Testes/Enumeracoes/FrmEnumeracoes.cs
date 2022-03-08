@@ -4,14 +4,14 @@ using cshlib.Brasil;
 
 namespace TestaEnumeracoes
 {
-    public partial class FrmTestaEnumeracoes : Form
+    public partial class FrmEnumeracoes : Form
     {
         private int _iRegiaoSelecionada = -1;
         private Regiao _regiaoSelecionada;
         private int _iUnidadeFederativaSelecionada = -1;
         private UnidadeFederativa _unidadeFederativaSelecionada;
 
-        public FrmTestaEnumeracoes()
+        public FrmEnumeracoes()
         {
             InitializeComponent();
         }

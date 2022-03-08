@@ -1,7 +1,7 @@
 ﻿
 namespace TestaEnumeracoes
 {
-    partial class FrmTestaEnumeracoes
+    partial class FrmEnumeracoes
     {
         /// <summary>
         ///  Required designer variable.

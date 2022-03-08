@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "cshlib", "cshlib\cshlib.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{A4204D78-76A8-45A8-B892-CB0C846A096A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestaEnumeracoes", "TestaEnumeracoes\TestaEnumeracoes.csproj", "{6D99D86F-97BF-4690-83BF-A0166B2A6DD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enumeracoes", "Testes\Enumeracoes\Enumeracoes.csproj", "{6D99D86F-97BF-4690-83BF-A0166B2A6DD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
