@@ -1,6 +1,6 @@
 ﻿namespace cshlib.Brasil
 {
-    public class UnidadeFederativa
+    public sealed class UnidadeFederativa
     {
         public enum Enum
         {

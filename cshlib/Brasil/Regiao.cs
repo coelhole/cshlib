@@ -1,6 +1,6 @@
 ﻿namespace cshlib.Brasil
 {
-    public class Regiao
+    public sealed class Regiao
     {
         public enum Enum
         {
