@@ -22,7 +22,9 @@ namespace cshlib.Brasil
             public const int PrimeiroDigitoInvalido = 7;
             public const int SegundoDigitoInvalido = 11;
 
-            public static readonly int[] ExceptionCodes = new int[4] { ComprimentoInvalido, AlgarismoInvalido, PrimeiroDigitoInvalido, SegundoDigitoInvalido };
+            private static readonly int[] ExceptionCodes = new int[4] { ComprimentoInvalido, AlgarismoInvalido, PrimeiroDigitoInvalido, SegundoDigitoInvalido };
+
+            public static int[] Codigos => (int[])ExceptionCodes.Clone();
 
             public int? Codigo { get; private set; }
 
