@@ -86,5 +86,10 @@ namespace cshlib.Brasil
         {
             return CPFException.NumeroValido;
         }
+
+        public override string ToString()
+        {
+            return "{\"numero\":\"" + Numero + "\",\"data_nascimento\":\"" + DataDeNascimento + "\"}";
+        }
     }
 }
