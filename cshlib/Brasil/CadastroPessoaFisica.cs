@@ -30,7 +30,7 @@ namespace cshlib.Brasil
 
             public CPFException() : base("CPF inválido") { }
 
-            public CPFException(int codigo):base(Mensagem(codigo))
+            public CPFException(int codigo) : base(Mensagem(codigo))
             {
                 if (ExceptionCodes.Contains(codigo))
                     Codigo = codigo;
