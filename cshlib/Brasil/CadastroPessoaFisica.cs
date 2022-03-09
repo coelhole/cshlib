@@ -3,17 +3,8 @@ using System.Linq;
 
 namespace cshlib.Brasil
 {
-    public sealed class CadastroPessoaFisica
+    public sealed class CadastroPessoaFisica : ICadastroReceitaFederal
     {
-        public enum SituacaoCadastral
-        {
-            Regular = 1,
-            PendenteDeRegularizacao,
-            Suspensa,
-            Cancelada,
-            Nula
-        }
-
         public sealed class CPFException : Exception
         {
             public const int NumeroValido = 1;
@@ -51,6 +42,8 @@ namespace cshlib.Brasil
             }
         }
 
+        private CadastroPessoaFisica() { }
+
         public CadastroPessoaFisica(string numero)
         {
             int codigoValidadeNumero = CheckCPF(numero);
@@ -61,26 +54,9 @@ namespace cshlib.Brasil
                 throw new CPFException(codigoValidadeNumero);
         }
 
-        public CadastroPessoaFisica(string numero, DateTime dataDeNascimento) : this(numero)
-        {
-            DataDeNascimento = dataDeNascimento;
-            //
-            //
-            //
-        }
-
-        public bool Fetched { get; private set; }
         public string Numero { get; private set; }
         public string NumeroComMascara => Numero.Substring(0, 3) + "." + Numero.Substring(3, 3) + "." + Numero.Substring(6, 3) + "-" + Numero.Substring(9, 2);
         public int AreaFiscal => Numero[8] == '0' ? 10 : Numero[8] - 48;
-        public string Nome { get; private set; }
-        public SituacaoCadastral? Situacao { get; private set; }
-        public int? DigitoVerificador { get; private set; }
-        public DateTime? DataDeNascimento { get; private set; }
-        public DateTime? DataDeInscricao { get; private set; }
-        public DateTime? HorarioConsulta { get; private set; }
-        public string CodigoControle { get; private set; }
-        public string QRCode /*base64*/ { get; private set; }
 
         public static int CheckCPF(string numero)
         {
@@ -94,8 +70,22 @@ namespace cshlib.Brasil
                 int[] digitos = new int[11];
                 for(int i = 0; i < 11; i++)
                     digitos[i] = numero[i] - 48;
-                //
-                //
+                int n = 0;
+                for (int i = 0; i < 9; i++)
+                    n += (10 - i) * digitos[i];
+                n *= 10;
+                n %= 11;
+                n = n == 10 ? 0 : n;
+                if (n != digitos[9])
+                    return CPFException.PrimeiroDigitoInvalido;
+                n = 0;
+                for (int i = 0; i < 10; i++)
+                    n += (11 - i) * digitos[i];
+                n *= 10;
+                n %= 11;
+                n = n == 10 ? 0 : n;
+                if (n != digitos[10])
+                    return CPFException.SegundoDigitoInvalido;
             }
 
             return CPFException.NumeroValido;
@@ -103,7 +93,7 @@ namespace cshlib.Brasil
 
         public override string ToString()
         {
-            return "{\"numero\":\"" + Numero + "\",\"data_nascimento\":\"" + DataDeNascimento + "\"}";
+            return NumeroComMascara;
         }
     }
 }
