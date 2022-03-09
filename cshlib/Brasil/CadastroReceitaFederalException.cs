@@ -31,7 +31,7 @@ namespace cshlib.Brasil
         {
             return codigo switch
             {
-                ComprimentoInvalido => "Número de cadastro inválido: comprimento diferente de 11",
+                ComprimentoInvalido => "Número de cadastro inválido: comprimento da string diferente de 11",
                 AlgarismoInvalido => "Número de cadastro inválido: algarismo/caractere inválido",
                 PrimeiroDigitoInvalido => "Número de cadastro inválido: primeiro dígito verificador inválido",
                 SegundoDigitoInvalido => "Número de cadastro inválido: segundo dígito verificador inválido",
