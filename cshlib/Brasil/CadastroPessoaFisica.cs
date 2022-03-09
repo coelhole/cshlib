@@ -1,57 +1,19 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 
 namespace cshlib.Brasil
 {
     public sealed class CadastroPessoaFisica : ICadastroReceitaFederal
     {
-        public sealed class CPFException : Exception
-        {
-            public const int NumeroValido = 1;
-            public const int ComprimentoInvalido = 3;
-            public const int AlgarismoInvalido = 5;
-            public const int PrimeiroDigitoInvalido = 7;
-            public const int SegundoDigitoInvalido = 11;
-
-            private static readonly int[] ExceptionCodes = new int[4] { ComprimentoInvalido, AlgarismoInvalido, PrimeiroDigitoInvalido, SegundoDigitoInvalido };
-
-            public static int[] Codigos => (int[])ExceptionCodes.Clone();
-
-            public int? Codigo { get; private set; }
-
-            public CPFException() : base("CPF inválido") { }
-
-            public CPFException(int codigo) : base(Mensagem(codigo))
-            {
-                if (ExceptionCodes.Contains(codigo))
-                    Codigo = codigo;
-                else
-                    throw new ArgumentException("Código de exceção inválido: " + codigo);
-            }
-
-            public static string Mensagem(int codigo)
-            {
-                return codigo switch
-                {
-                    ComprimentoInvalido => "CPF inválido: comprimento diferente de 11",
-                    AlgarismoInvalido => "CPF inválido: algarismo/caractere inválido",
-                    PrimeiroDigitoInvalido => "CPF inválido: primeiro dígito verificador inválido",
-                    SegundoDigitoInvalido => "CPF inválido: segundo dígito verificador inválido",
-                    _ => "CPF inválido",
-                };
-            }
-        }
-
         private CadastroPessoaFisica() { }
 
         public CadastroPessoaFisica(string numero)
         {
             int codigoValidadeNumero = CheckCPF(numero);
 
-            if (codigoValidadeNumero == CPFException.NumeroValido)
+            if (codigoValidadeNumero == CadastroReceitaFederalException.NumeroValido)
                 Numero = numero;
             else
-                throw new CPFException(codigoValidadeNumero);
+                throw new CadastroReceitaFederalException(codigoValidadeNumero);
         }
 
         public string Numero { get; private set; }
@@ -61,10 +23,10 @@ namespace cshlib.Brasil
         public static int CheckCPF(string numero)
         {
             if (numero.Length != 11)
-                return CPFException.ComprimentoInvalido;
+                return CadastroReceitaFederalException.ComprimentoInvalido;
             else
             if (!numero.All(char.IsDigit))
-                return CPFException.AlgarismoInvalido;
+                return CadastroReceitaFederalException.AlgarismoInvalido;
             else
             {
                 int[] digitos = new int[11];
@@ -77,7 +39,7 @@ namespace cshlib.Brasil
                 n %= 11;
                 n = n == 10 ? 0 : n;
                 if (n != digitos[9])
-                    return CPFException.PrimeiroDigitoInvalido;
+                    return CadastroReceitaFederalException.PrimeiroDigitoInvalido;
                 n = 0;
                 for (int i = 0; i < 10; i++)
                     n += (11 - i) * digitos[i];
@@ -85,10 +47,10 @@ namespace cshlib.Brasil
                 n %= 11;
                 n = n == 10 ? 0 : n;
                 if (n != digitos[10])
-                    return CPFException.SegundoDigitoInvalido;
+                    return CadastroReceitaFederalException.SegundoDigitoInvalido;
             }
 
-            return CPFException.NumeroValido;
+            return CadastroReceitaFederalException.NumeroValido;
         }
 
         public override string ToString()
