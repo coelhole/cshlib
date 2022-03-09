@@ -8,7 +8,7 @@ namespace cshlib.Brasil
 
         public CadastroPessoaFisica(string numero)
         {
-            int codigoValidadeNumero = CheckCPF(numero);
+            int codigoValidadeNumero = Check(numero);
 
             if (codigoValidadeNumero == CadastroReceitaFederalException.NumeroValido)
                 Numero = numero;
@@ -20,7 +20,7 @@ namespace cshlib.Brasil
         public string NumeroComMascara => Numero.Substring(0, 3) + "." + Numero.Substring(3, 3) + "." + Numero.Substring(6, 3) + "-" + Numero.Substring(9, 2);
         public int AreaFiscal => Numero[8] == '0' ? 10 : Numero[8] - 48;
 
-        public static int CheckCPF(string numero)
+        public static int Check(string numero)
         {
             if (numero.Length != 11)
                 return CadastroReceitaFederalException.ComprimentoInvalido;
@@ -32,6 +32,7 @@ namespace cshlib.Brasil
                 int[] digitos = new int[11];
                 for(int i = 0; i < 11; i++)
                     digitos[i] = numero[i] - 48;
+
                 int n = 0;
                 for (int i = 0; i < 9; i++)
                     n += (10 - i) * digitos[i];
@@ -40,6 +41,7 @@ namespace cshlib.Brasil
                 n = n == 10 ? 0 : n;
                 if (n != digitos[9])
                     return CadastroReceitaFederalException.PrimeiroDigitoInvalido;
+
                 n = 0;
                 for (int i = 0; i < 10; i++)
                     n += (11 - i) * digitos[i];
