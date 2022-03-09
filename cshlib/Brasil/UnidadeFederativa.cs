@@ -65,7 +65,9 @@
         public static readonly UnidadeFederativa GO;
         public static readonly UnidadeFederativa DF;
 
-        public static readonly UnidadeFederativa[] Itens;
+        private static readonly UnidadeFederativa[] Itens;
+
+        public static UnidadeFederativa[] UFs => (UnidadeFederativa[])Itens.Clone();
 
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -365,6 +367,14 @@
                 if (i.Id == id)
                     return true;
             return false;
+        }
+
+        public static UnidadeFederativa Get(int id)
+        {
+            foreach (UnidadeFederativa i in Itens)
+                if (i.Id == id)
+                    return i;
+            return null;
         }
 
         public override string ToString()

@@ -17,7 +17,9 @@
         public static readonly Regiao S;
         public static readonly Regiao CO;
 
-        public static readonly Regiao[] Itens;
+        private static readonly Regiao[] Itens;
+
+        public static Regiao[] Regiaos => (Regiao[])Itens.Clone();
 
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -86,6 +88,14 @@
                 if (i.Id == id)
                     return true;
             return false;
+        }
+
+        public static Regiao Get(int id)
+        {
+            foreach (Regiao i in Itens)
+                if (i.Id == id)
+                    return i;
+            return null;
         }
 
         public override string ToString()
