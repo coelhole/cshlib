@@ -69,17 +69,17 @@
             Regioes = new Regiao[5] { N, NE, SE, S, CO };
         }
 
-        public Enum ToEnum()
-        {
-            return (Enum)Id;
-        }
-
-        public static Regiao EnumToRegiao(Enum en)
+        public static implicit operator Regiao(Enum en)
         {
             foreach (Regiao i in Regioes)
                 if (i.Id == (int)en)
                     return i;
             return null;
+        }
+
+        public static implicit operator Enum(Regiao r)
+        {
+            return (Enum)r.Id;
         }
 
         public static bool Existe(int id)

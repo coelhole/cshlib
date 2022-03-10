@@ -348,17 +348,17 @@
 
         }
 
-        public Enum ToEnum()
-        {
-            return (Enum)Id;
-        }
-
-        public static UnidadeFederativa EnumToUnidadeFederativa(Enum en)
+        public static implicit operator UnidadeFederativa(Enum en)
         {
             foreach (UnidadeFederativa i in UFs)
                 if (i.Id == (int)en)
                     return i;
             return null;
+        }
+
+        public static implicit operator Enum(UnidadeFederativa uf)
+        {
+            return (Enum)uf.Id;
         }
 
         public static bool Existe(int id)
