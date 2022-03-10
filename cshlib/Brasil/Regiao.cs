@@ -17,9 +17,9 @@
         public static readonly Regiao S;
         public static readonly Regiao CO;
 
-        private static readonly Regiao[] Itens;
+        private static readonly Regiao[] Regioes;
 
-        public static Regiao[] Regiaos => (Regiao[])Itens.Clone();
+        public static Regiao[] Itens() => (Regiao[])Regioes.Clone();
 
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -66,7 +66,7 @@
 
 
 
-            Itens = new Regiao[5] { N, NE, SE, S, CO };
+            Regioes = new Regiao[5] { N, NE, SE, S, CO };
         }
 
         public Enum ToEnum()
@@ -76,7 +76,7 @@
 
         public static Regiao EnumToRegiao(Enum en)
         {
-            foreach (Regiao i in Itens)
+            foreach (Regiao i in Regioes)
                 if (i.Id == (int)en)
                     return i;
             return null;
@@ -84,7 +84,7 @@
 
         public static bool Existe(int id)
         {
-            foreach (Regiao i in Itens)
+            foreach (Regiao i in Regioes)
                 if (i.Id == id)
                     return true;
             return false;
@@ -92,7 +92,7 @@
 
         public static Regiao Get(int id)
         {
-            foreach (Regiao i in Itens)
+            foreach (Regiao i in Regioes)
                 if (i.Id == id)
                     return i;
             return null;

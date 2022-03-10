@@ -1,12 +1,10 @@
-﻿using System.Net.Http;
-
-namespace cshlib.Brasil
+﻿namespace cshlib.Brasil
 {
     public sealed class Mesorregiao
     {
-        private static readonly Mesorregiao[] Itens;
+        private static readonly Mesorregiao[] Mesorregiaos;
 
-        public static Mesorregiao[] Mesorregiaos => (Mesorregiao[])Itens.Clone();
+        public static Mesorregiao[] Itens() => (Mesorregiao[])Mesorregiaos.Clone();
 
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -23,7 +21,7 @@ namespace cshlib.Brasil
 
         public static bool Existe(int id)
         {
-            foreach (Mesorregiao i in Itens)
+            foreach (Mesorregiao i in Mesorregiaos)
                 if (i.Id == id)
                     return true;
             return false;
@@ -31,7 +29,7 @@ namespace cshlib.Brasil
 
         public static Mesorregiao Get(int id)
         {
-            foreach (Mesorregiao i in Itens)
+            foreach (Mesorregiao i in Mesorregiaos)
                 if (i.Id == id)
                     return i;
             return null;

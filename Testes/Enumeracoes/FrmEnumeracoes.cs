@@ -6,8 +6,8 @@ namespace TestaEnumeracoes
 {
     public partial class FrmEnumeracoes : Form
     {
-        private static readonly Regiao[] Regioes = Regiao.Regiaos;
-        private static readonly UnidadeFederativa[] UFs = UnidadeFederativa.UFs;
+        private static readonly Regiao[] Regioes = Regiao.Itens();
+        private static readonly UnidadeFederativa[] UFs = UnidadeFederativa.Itens();
 
         private int _iRegiaoSelecionada = -1;
         private Regiao _regiaoSelecionada;

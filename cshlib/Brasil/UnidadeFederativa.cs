@@ -65,9 +65,9 @@
         public static readonly UnidadeFederativa GO;
         public static readonly UnidadeFederativa DF;
 
-        private static readonly UnidadeFederativa[] Itens;
+        private static readonly UnidadeFederativa[] UFs;
 
-        public static UnidadeFederativa[] UFs => (UnidadeFederativa[])Itens.Clone();
+        public static UnidadeFederativa[] Itens() => (UnidadeFederativa[])UFs.Clone();
 
         public int Id { get; private set; }
         public string Nome { get; private set; }
@@ -339,7 +339,7 @@
 
 
 
-            Itens = new UnidadeFederativa[27] { RO, AC, AM, RR, PA, AP, TO,
+            UFs = new UnidadeFederativa[27] { RO, AC, AM, RR, PA, AP, TO,
                 MA, PI, CE, RN, PB, PE, AL, SE, BA,
                 MG, ES, RJ, /*GB,*/ SP,
                 PR, SC, RS,
@@ -355,7 +355,7 @@
 
         public static UnidadeFederativa EnumToUnidadeFederativa(Enum en)
         {
-            foreach (UnidadeFederativa i in Itens)
+            foreach (UnidadeFederativa i in UFs)
                 if (i.Id == (int)en)
                     return i;
             return null;
@@ -363,7 +363,7 @@
 
         public static bool Existe(int id)
         {
-            foreach (UnidadeFederativa i in Itens)
+            foreach (UnidadeFederativa i in UFs)
                 if (i.Id == id)
                     return true;
             return false;
@@ -371,7 +371,7 @@
 
         public static UnidadeFederativa Get(int id)
         {
-            foreach (UnidadeFederativa i in Itens)
+            foreach (UnidadeFederativa i in UFs)
                 if (i.Id == id)
                     return i;
             return null;
