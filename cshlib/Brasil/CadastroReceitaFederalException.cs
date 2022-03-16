@@ -13,7 +13,7 @@ namespace cshlib.Brasil
 
         private static readonly int[] ExceptionCodes = new int[4] { ComprimentoInvalido, AlgarismoInvalido, PrimeiroDigitoInvalido, SegundoDigitoInvalido };
 
-        public static int[] Codigos => (int[])ExceptionCodes.Clone();
+        public static int[] Codigos() => (int[])ExceptionCodes.Clone();
 
         public int? Codigo { get; private set; }
 

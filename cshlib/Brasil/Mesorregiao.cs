@@ -78,11 +78,11 @@ namespace cshlib.Brasil
 
         public static Mesorregiao[] Get(Regiao regiao)
         {
-            List<Mesorregiao> ufmsrgs = new List<Mesorregiao>();
+            List<Mesorregiao> rgmsrgs = new List<Mesorregiao>();
             foreach (Mesorregiao msrg in Mesorregiaos)
                 if (msrg.UnidadeFederativa.Regiao == regiao)
-                    ufmsrgs.Add(msrg);
-            return ufmsrgs.ToArray();
+                    rgmsrgs.Add(msrg);
+            return rgmsrgs.ToArray();
         }
 
         public override string ToString()
