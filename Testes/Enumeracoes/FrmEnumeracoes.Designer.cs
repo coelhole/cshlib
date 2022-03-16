@@ -38,7 +38,6 @@ namespace TestaEnumeracoes
             this.TxtBxUF = new System.Windows.Forms.TextBox();
             this.CbxUFs = new System.Windows.Forms.ComboBox();
             this.LblSelecionarUF = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.TabCtrlEnumeracoes.SuspendLayout();
             this.TabRegiao.SuspendLayout();
             this.TabUF.SuspendLayout();
@@ -57,7 +56,6 @@ namespace TestaEnumeracoes
             // 
             // TabRegiao
             // 
-            this.TabRegiao.Controls.Add(this.label1);
             this.TabRegiao.Controls.Add(this.TxtBxRegiao);
             this.TabRegiao.Controls.Add(this.LblSelecionarRegiao);
             this.TabRegiao.Controls.Add(this.CbxRegioes);
@@ -146,15 +144,6 @@ namespace TestaEnumeracoes
             this.LblSelecionarUF.TabIndex = 0;
             this.LblSelecionarUF.Text = "Selecione uma UF";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(178, 182);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
-            // 
             // FrmEnumeracoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -186,7 +175,6 @@ namespace TestaEnumeracoes
         private System.Windows.Forms.Label LblSelecionarUF;
         private System.Windows.Forms.ComboBox CbxUFs;
         private System.Windows.Forms.TextBox TxtBxUF;
-        private System.Windows.Forms.Label label1;
     }
 }
 

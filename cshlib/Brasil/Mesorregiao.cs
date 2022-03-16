@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.Net.Http;
 
 namespace cshlib.Brasil
@@ -22,28 +23,66 @@ namespace cshlib.Brasil
 
         private Mesorregiao() { }
 
+        private struct Msreg
+        {
+            [JsonProperty("mesorregiao-id")]
+            public int mesorregiao_id;
+            [JsonProperty("mesorregiao-nome")]
+            public string mesorregiao_nome;
+            [JsonProperty("UF-id")]
+            public int uf_id;
+            [JsonProperty("UF-sigla")]
+            public string uf_sigla;
+            [JsonProperty("UF-nome")]
+            public string uf_nome;
+            [JsonProperty("regiao-id")]
+            public int regiao_id;
+            [JsonProperty("regiao-sigla")]
+            public string regiao_sigla;
+            [JsonProperty("regiao-nome")]
+            public string regiao_nome;
+        }
+
         static Mesorregiao()
         {
             string mesorregiaos;
             using var client = new HttpClient();
             mesorregiaos = client.GetStringAsync("https://servicodados.ibge.gov.br/api/v1/localidades/mesorregioes?view=nivelado&orderBy=id").Result;
-
+            Msreg[] msregs = JsonConvert.DeserializeObject<Msreg[]>(mesorregiaos);
+            Mesorregiaos = new Mesorregiao[msregs.Length];
+            Indices = new Dictionary<int, int>(msregs.Length);
+            for(int i = 0; i < Mesorregiaos.Length; i++)
+            {
+                Mesorregiaos[i] = new Mesorregiao
+                {
+                    Id = msregs[i].mesorregiao_id,
+                    Nome = msregs[i].mesorregiao_nome,
+                    UnidadeFederativa = (UnidadeFederativa.Enum)msregs[i].uf_id
+                };
+                Indices.Add(msregs[i].mesorregiao_id, i);
+            }
         }
 
-        public static bool Existe(int id)
+        public static bool Existe(int id) => Indices.ContainsKey(id);
+
+        public static Mesorregiao Get(int id) => Indices.ContainsKey(id) ? Mesorregiaos[Indices.GetValueOrDefault(id)] : null;
+
+        public static Mesorregiao[] Get(UnidadeFederativa unidade)
         {
-            foreach (Mesorregiao i in Mesorregiaos)
-                if (i.Id == id)
-                    return true;
-            return false;
+            List<Mesorregiao> ufmsrgs = new List<Mesorregiao>();
+            foreach(Mesorregiao msrg in Mesorregiaos)
+                if (msrg.UnidadeFederativa == unidade)
+                    ufmsrgs.Add(msrg);
+            return ufmsrgs.ToArray();
         }
 
-        public static Mesorregiao Get(int id)
+        public static Mesorregiao[] Get(Regiao regiao)
         {
-            foreach (Mesorregiao i in Mesorregiaos)
-                if (i.Id == id)
-                    return i;
-            return null;
+            List<Mesorregiao> ufmsrgs = new List<Mesorregiao>();
+            foreach (Mesorregiao msrg in Mesorregiaos)
+                if (msrg.UnidadeFederativa.Regiao == regiao)
+                    ufmsrgs.Add(msrg);
+            return ufmsrgs.ToArray();
         }
 
         public override string ToString()
