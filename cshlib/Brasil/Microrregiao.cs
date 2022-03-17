@@ -73,7 +73,7 @@ namespace cshlib.Brasil
 
         public static Microrregiao[] Get(Mesorregiao mesorregiao)
         {
-            List<Microrregiao> msregmcrgs = new List<Microrregiao>();
+            List<Microrregiao> msregmcrgs = new();
             foreach (Microrregiao mcrg in Microrregiaos)
                 if (mcrg.Mesorregiao == mesorregiao)
                     msregmcrgs.Add(mcrg);
@@ -82,7 +82,7 @@ namespace cshlib.Brasil
 
         public static Microrregiao[] Get(UnidadeFederativa unidade)
         {
-            List<Microrregiao> ufmcrgs = new List<Microrregiao>();
+            List<Microrregiao> ufmcrgs = new();
             foreach (Microrregiao mcrg in Microrregiaos)
                 if (mcrg.Mesorregiao.UnidadeFederativa == unidade)
                     ufmcrgs.Add(mcrg);
@@ -91,7 +91,7 @@ namespace cshlib.Brasil
 
         public static Microrregiao[] Get(Regiao regiao)
         {
-            List<Microrregiao> rgmcrgs = new List<Microrregiao>();
+            List<Microrregiao> rgmcrgs = new();
             foreach (Microrregiao mcrg in Microrregiaos)
                 if (mcrg.Mesorregiao.UnidadeFederativa.Regiao == regiao)
                     rgmcrgs.Add(mcrg);

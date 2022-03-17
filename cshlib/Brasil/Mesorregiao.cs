@@ -69,7 +69,7 @@ namespace cshlib.Brasil
 
         public static Mesorregiao[] Get(UnidadeFederativa unidade)
         {
-            List<Mesorregiao> ufmsrgs = new List<Mesorregiao>();
+            List<Mesorregiao> ufmsrgs = new();
             foreach(Mesorregiao msrg in Mesorregiaos)
                 if (msrg.UnidadeFederativa == unidade)
                     ufmsrgs.Add(msrg);
@@ -78,7 +78,7 @@ namespace cshlib.Brasil
 
         public static Mesorregiao[] Get(Regiao regiao)
         {
-            List<Mesorregiao> rgmsrgs = new List<Mesorregiao>();
+            List<Mesorregiao> rgmsrgs = new();
             foreach (Mesorregiao msrg in Mesorregiaos)
                 if (msrg.UnidadeFederativa.Regiao == regiao)
                     rgmsrgs.Add(msrg);
