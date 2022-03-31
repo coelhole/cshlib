@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 
@@ -46,8 +47,15 @@ namespace cshlib.Brasil
         static Mesorregiao()
         {
             string mesorregiaos;
-            using var client = new HttpClient();
-            mesorregiaos = client.GetStringAsync("https://servicodados.ibge.gov.br/api/v1/localidades/mesorregioes?view=nivelado&orderBy=id").Result;
+            try
+            {
+                using var client = new HttpClient();
+                mesorregiaos = client.GetStringAsync(Strings.API_LOCALIDADES + "mesorregioes?view=nivelado&orderBy=id").Result;
+            }
+            catch (Exception)
+            {
+                mesorregiaos = Strings.MESORREGIOES;
+            }
             Msreg[] msregs = JsonConvert.DeserializeObject<Msreg[]>(mesorregiaos);
             Mesorregiaos = new Mesorregiao[msregs.Length];
             Indices = new Dictionary<int, int>(msregs.Length);

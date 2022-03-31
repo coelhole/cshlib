@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 
@@ -50,8 +51,15 @@ namespace cshlib.Brasil
         static Microrregiao()
         {
             string microrregiaos;
-            using var client = new HttpClient();
-            microrregiaos = client.GetStringAsync("https://servicodados.ibge.gov.br/api/v1/localidades/microrregioes?view=nivelado&orderBy=id").Result;
+            try
+            {
+                using var client = new HttpClient();
+                microrregiaos = client.GetStringAsync(Strings.API_LOCALIDADES + "microrregioes?view=nivelado&orderBy=id").Result;
+            }
+            catch (Exception)
+            {
+                microrregiaos = Strings.MICRORREGIOES;
+            }
             Mcreg[] mcregs = JsonConvert.DeserializeObject<Mcreg[]>(microrregiaos);
             Microrregiaos = new Microrregiao[mcregs.Length];
             Indices = new Dictionary<int, int>(mcregs.Length);

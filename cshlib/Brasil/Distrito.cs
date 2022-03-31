@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 
@@ -58,8 +59,15 @@ namespace cshlib.Brasil
         static Distrito()
         {
             string distritos;
-            using var client = new HttpClient();
-            distritos = client.GetStringAsync("https://servicodados.ibge.gov.br/api/v1/localidades/distritos?view=nivelado&orderBy=id").Result;
+            try
+            {
+                using var client = new HttpClient();
+                distritos = client.GetStringAsync(Strings.API_LOCALIDADES + "distritos?view=nivelado&orderBy=id").Result;
+            }
+            catch(Exception)
+            {
+                distritos = Strings.DISTRITOS;
+            }
             Dstrt[] dstrts = JsonConvert.DeserializeObject<Dstrt[]>(distritos);
             Distritos = new Distrito[dstrts.Length];
             Indices = new Dictionary<int, int>(dstrts.Length);

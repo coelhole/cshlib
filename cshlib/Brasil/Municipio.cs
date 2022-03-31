@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 
@@ -54,8 +55,15 @@ namespace cshlib.Brasil
         static Municipio()
         {
             string municipios;
-            using var client = new HttpClient();
-            municipios = client.GetStringAsync("https://servicodados.ibge.gov.br/api/v1/localidades/municipios?view=nivelado&orderBy=id").Result;
+            try
+            {
+                using var client = new HttpClient();
+                municipios = client.GetStringAsync(Strings.API_LOCALIDADES + "municipios?view=nivelado&orderBy=id").Result;
+            }
+            catch (Exception)
+            {
+                municipios = Strings.MUNICIPIOS;
+            }
             Mncp[] mncps = JsonConvert.DeserializeObject<Mncp[]>(municipios);
             Municipios = new Municipio[mncps.Length];
             Indices = new Dictionary<int, int>(mncps.Length);
