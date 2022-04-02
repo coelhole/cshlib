@@ -93,9 +93,6 @@ namespace cshlib.Brasil
             return rgmsrgs.ToArray();
         }
 
-        public override string ToString()
-        {
-            return "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"unidade_federativa\":" + UnidadeFederativa + "}";
-        }
+        public override string ToString() => "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"unidade_federativa\":" + UnidadeFederativa + "}";
     }
 }

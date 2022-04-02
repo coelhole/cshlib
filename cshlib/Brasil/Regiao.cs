@@ -98,9 +98,6 @@
             return null;
         }
 
-        public override string ToString()
-        {
-            return "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"sigla\":\"" + Sigla + "\"}";
-        }
+        public override string ToString() => "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"sigla\":\"" + Sigla + "\"}";
     }
 }

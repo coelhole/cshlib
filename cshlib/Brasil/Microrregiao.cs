@@ -106,9 +106,6 @@ namespace cshlib.Brasil
             return rgmcrgs.ToArray();
         }
 
-        public override string ToString()
-        {
-            return "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"mesorregiao\":" + Mesorregiao + "}";
-        }
+        public override string ToString() => "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"mesorregiao\":" + Mesorregiao + "}";
     }
 }

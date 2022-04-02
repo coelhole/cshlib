@@ -16,6 +16,7 @@ namespace cshlib.Brasil
                 throw new CadastroReceitaFederalException(codigoValidadeNumero);
         }
 
+        public TipoPessoa TipoPessoa => TipoPessoa.Fisica;
         public string Numero { get; private set; }
         public string NumeroComMascara => Numero.Substring(0, 3) + "." + Numero.Substring(3, 3) + "." + Numero.Substring(6, 3) + "-" + Numero.Substring(9, 2);
         public int AreaFiscal => Numero[8] == '0' ? 10 : Numero[8] - 48;

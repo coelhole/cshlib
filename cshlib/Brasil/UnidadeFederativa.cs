@@ -378,9 +378,6 @@
             return null;
         }
 
-        public override string ToString()
-        {
-            return "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"sigla\":\"" + Sigla + "\",\"area_fiscal\":" + AreaFiscal + ",\"regiao\":" + Regiao + "}";
-        }
+        public override string ToString() => "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"sigla\":\"" + Sigla + "\",\"area_fiscal\":" + AreaFiscal + ",\"regiao\":" + Regiao + "}";
     }
 }

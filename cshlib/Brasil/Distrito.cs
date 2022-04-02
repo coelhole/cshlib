@@ -132,9 +132,6 @@ namespace cshlib.Brasil
             return rgdstrts.ToArray();
         }
 
-        public override string ToString()
-        {
-            return "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"municipio\":" + Municipio + "}";
-        }
+        public override string ToString() => "{\"id\":" + Id + ",\"nome\":\"" + Nome + "\",\"municipio\":" + Municipio + "}";
     }
 }
